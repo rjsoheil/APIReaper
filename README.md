@@ -1,7 +1,8 @@
 # APIReaper
 
-<img width="636" height="424" alt="General Pic" src="https://github.com/user-attachments/assets/5f5fee9e-cf6f-4f81-a5ed-a2ec1ee10800" style="display: block; margin: 0 auto;" />
-
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <img width="636" height="424" alt="General Pic" src="https://github.com/user-attachments/assets/5f5fee9e-cf6f-4f81-a5ed-a2ec1ee10800" style="display: block; margin: 0 auto;" />
+</div>
 
 APIReaper is a Burp Suite extension for importing API endpoint collections and turning them into editable HTTP requests. It is designed for API security testing workflows where you need to quickly review, modify, filter, and send large sets of requests to Burp Repeater or Intruder.
 
