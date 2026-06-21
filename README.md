@@ -1,12 +1,15 @@
 # APIReaper
 
+<img width="1536" height="1024" alt="General Pic" src="https://github.com/user-attachments/assets/5f5fee9e-cf6f-4f81-a5ed-a2ec1ee10800" />
+
+
 APIReaper is a Burp Suite extension for importing API endpoint collections and turning them into editable HTTP requests. It is designed for API security testing workflows where you need to quickly review, modify, filter, and send large sets of requests to Burp Repeater or Intruder.
 
 The extension supports Postman collections, Swagger/OpenAPI documents, HAR exports, Insomnia exports, and simple JSON endpoint lists.
 
-![APIReaper Workspace](docs/images/workspace.png)
+![APIReaper Workspace](https://github.com/user-attachments/assets/b5449fdf-1c2d-49dc-801b-2a20a59a6769)
 
-> Screenshot placeholder: main Workspace tab with imported endpoints, request editor, filters, and action menu.
+> Main Workspace tab with imported endpoints, request editor, filters, and action menu.
 
 ## Features
 
