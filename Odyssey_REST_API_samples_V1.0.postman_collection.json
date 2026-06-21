@@ -1,0 +1,2623 @@
+{
+	"info": {
+		"name": "Odyssey REST API samples V1.0",
+		"_postman_id": "d1929352-a637-56de-df1d-63ee329f0ae2",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1 - Send messages",
+			"description": "",
+			"item": [
+				{
+					"name": "Send a SMS",
+					"description": "Various samples to send a SMS",
+					"item": [
+						{
+							"name": "Send basic SMS",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"SMS\",\r\n  \"Text\": \"Hello  World!\",  \r\n  \"TrackingId\": \"Send Basic SMS\",\r\n  \"AdhocRecipients\": [\r\n  {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00337xxxxxx\"\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/SMSJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"SMSJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Use advanced parameters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"SMS\",\r\n  \"TrackingId\": \"Send SMS with advanced parameters\",\r\n  \"Text\": \"Hello World !\",\r\n  \"Parameter\": {\r\n    \"Sender\": \"My company\",\r\n    \"ContentType\": 3,\r\n    \"Media\": 1\r\n  },\r\n  \"AdhocRecipients\": [\r\n    {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00337xxxxxx\",\r\n      \"OptionalFields\": [\r\n        \"Company A\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/SMSJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"SMSJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Use a file list",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"SMS\",\r\n  \"TrackingId\": \"Send SMS with file list\",\r\n  \"Text\": \"Hello World !\",\r\n  \"Lists\": [\r\n    {\r\n      \"Name\": \"test.tab\",\r\n      \"Hosted\": false,\r\n      \"Type\":0,\r\n      \"Content\": \"77u/MDAzMzc4Tg3OA==\"\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/SMSJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"SMSJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Personalised your messages",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"SMS\",\r\n  \"TrackingId\": \"Send SMS with personalization\",\r\n  \"LaunchType\": 0,\r\n  \"Text\": \"Hi `BCF2, Are you from `BCF3 ?\",\r\n  \"AdhocRecipients\": [\r\n    {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00337xxxxxx\",\r\n      \"OptionalFields\": [\r\n        \"Company A\"\r\n      ]\r\n    },\r\n  {\r\n      \"Name\": \"James\",\r\n      \"Address\": \"00336xxxxxx\",\r\n      \"OptionalFields\": [\r\n        \"Company B\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/SMSJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"SMSJobs"
+									]
+								},
+								"description": "using adhoc sending "
+							},
+							"response": []
+						},
+						{
+							"name": "Personalised your messages entirely",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"SMS\",\r\n  \"TrackingId\": \"Send SMS with Full message personalization\",\r\n  \"LaunchType\": 0,\r\n  \"Text\": \"`BCF3\",\r\n  \"AdhocRecipients\": [\r\n    {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00337xxxxxx\",\r\n      \"OptionalFields\": [\r\n        \"This the text for the first recipient Dupont\"\r\n      ]\r\n    },\r\n  {\r\n      \"Name\": \"James\",\r\n      \"Address\": \"00336xxxxxx\",\r\n      \"OptionalFields\": [\r\n        \"This the text for the second recipient James\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/SMSJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"SMSJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Scheduled Job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"JobType\": \"SMS\",\r\n  \"TrackingId\": \"Send a Scheduled SMS\",\r\n  \"Text\": \"Happy New Year!\",\r\n  \"ScheduledStartTime\": \"2019-01-01T00:00:00.688Z\", \r\n  \"AdhocRecipients\": [\r\n    {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00337xxxxxx\",\r\n      \"OptionalFields\": [\r\n        \"Company A\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/SMSJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"SMSJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "SMS Short tracking URL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"JobType\": \"SMS\",\r\n  \"TrackingId\": \"Send SMS with tracking URL\",\r\n  \"Text\": \"Hello World ! Please click on the following link : http://www.odyssey-messaging.com/\",\r\n  \"Parameter\": {\r\n    \"Media\": 1,\r\n  \"ShortUrl\":true,\r\n  \"ShortUrlTracking\":true\r\n  },\r\n  \"AdhocRecipients\": [\r\n    {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00337xxxxxx\",\r\n      \"OptionalFields\": [\r\n        \"Company A\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/SMSJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"SMSJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Send an Email",
+					"description": "Various samples to send an email",
+					"item": [
+						{
+							"name": "Send basic Email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"Email\",\r\n  \"TrackingId\": \"Send basic Email\",\r\n  \"EmailBody\": {\r\n    \"Name\": \"body.html\",\r\n    \"Content\": \"PGh0bWw+DQo8aGVhZGVyPg0KPG1ldGEgY2hhcnNldD0iVVRGLTgiPg0KPC9oZWFkZXI+DQo8Ym9keT4NClRoaXMgaXMgYW4gZW1haWwgdGVzdCBmcm9tIE9keXNzZXkgTWVzc2FnaW5nLg0KPC9ib2R5Pg0KPC9odG1sPg==\",\r\n    \"Type\":2\r\n  },\r\n  \"AdhocRecipients\" : [\r\n    {\r\n      \"Address\":\"usern@gmail.com\",\r\n      \"Name\":\"John\",\r\n      \"OptionalFields\": [\r\n        \"My Company\",\r\n        \"BirthDate\"\r\n      ]\r\n    }\r\n  ],\r\n  \"Parameter\": {\r\n    \"Media\" : 5,\r\n    \"Subject\": \"My Email subject\",\r\n    \"ReplyTo\":\"support@myCompany.com\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/EmailJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"EmailJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Use advanced parameters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"Email\",\r\n  \"TrackingId\": \"Send Email with advanced parameters\",\r\n  \"EmailBody\": {\r\n    \"Name\": \"body.html\",\r\n    \"Content\": \"PGh0bWw+DQo8aGVhZGVyPg0KPG1ldGEgY2hhcnNldD0iVVRGLTgiPg0KPC9oZWFkZXI+DQo8Ym9keT4NClRoaXMgaXMgYW4gZW1haWwgdGVzdCBmcm9tIE9keXNzZXkgTWVzc2FnaW5nLg0KPGJyLz4NCjxhIGhyZWY9Imh0dHA6Ly93d3cub2R5c3NleS1tZXNzYWdpbmcuY29tIj5UaGlzIGlzIGEgbGluayB0byB0ZXN0IHRoZSB0cmFja2luZyBvcHRpb248L2E+DQo8L2JvZHk+DQo8L2h0bWw+\",\r\n    \"Type\":2\r\n  },\r\n  \"AdhocRecipients\": [\r\n    {\r\n      \"Address\":\"usern@gmail.com\",\r\n      \"Name\":\"John\",\r\n      \"OptionalFields\": [\r\n        \"My Company\",\r\n        \"BirthDate\"\r\n      ]\r\n    }\r\n  ],\r\n  \"Attachments\": [\r\n    {\r\n      \"Name\": \"Attachment1.txt\",\r\n      \"Content\": \"VGhpcyBpcyBhbiBhdHRhY2hlbWVudCBmaWxl\",\r\n      \"Type\":4\r\n    }\r\n  ],\r\n  \"Parameter\": {\r\n    \"Media\" : 5,\r\n    \"Subject\": \"My Email subject\",\r\n    \"ReplyTo\":\"support@myCompany.com\",\r\n    \"From\":\"\\\"Mycompany\\\" <MyCompany@ods2.net>\",\r\n    \"ActivateAutoPull\": true,\r\n    \"ActivateTracking\": true,\r\n    \"TrackingType\": 0\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/EmailJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"EmailJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Use a file list",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"Email\",\r\n  \"TrackingId\": \"Send Email with file list\",\r\n  \"EmailBody\": {\r\n    \"Name\": \"body.html\",\r\n    \"Content\": \"PGh0bWw+DQo8aGVhZGVyPg0KPG1ldGEgY2hhcnNldD0iVVRGLTgiPg0KPC9oZWFkZXI+DQo8Ym9keT4NClRoaXMgaXMgYW4gZW1haWwgdGVzdCBmcm9tIE9keXNzZXkgTWVzc2FnaW5nLg0KPC9ib2R5Pg0KPC9odG1sPg==\",\r\n    \"Type\":2\r\n  },\r\n  \"Lists\": [\r\n    {\r\n      \"Name\": \"test.tab\",\r\n      \"Type\":0,\r\n      \"Content\": \"dXNlcm5AZ21haWwuY29tCUpvaG4JTXkgQ29tcGFueQlCaXJ0aERhdGU=\"\r\n    }\r\n  ],\r\n  \"Parameter\": {\r\n    \"Media\" : 5,\r\n    \"Subject\": \"My Email subject\",\r\n    \"ReplyTo\":\"support@myCompany.com\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/EmailJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"EmailJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Personalization with adhoc",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"Email\",\r\n  \"TrackingId\": \"Send Email with personalisation\",\r\n  \"EmailBody\": {\r\n    \"Name\": \"body.html\",\r\n    \"Content\": \"PGh0bWw+DQo8aGVhZGVyPg0KPG1ldGEgY2hhcnNldD0iVVRGLTgiPg0KPC9oZWFkZXI+DQo8Ym9keT4NCkhpIGBCQ0YyLCBBcmUgeW91IGZyb20gYEJDRjMgPw0KPC9ib2R5Pg0KPC9odG1sPg==\",\r\n    \"Type\":2\r\n  },\r\n  \"AdhocRecipients\": [\r\n    {\r\n      \"Address\":\"usern@gmail.com\",\r\n      \"Name\":\"Dupont\",\r\n      \"OptionalFields\": [\r\n        \"Company A\",\r\n        \"BirthDate\"\r\n      ]\r\n    },\r\n    {\r\n      \"Address\":\"usern@gmail.com\",\r\n      \"Name\":\"James\",\r\n      \"OptionalFields\":[\r\n        \"Company B\",\r\n        \"BirthDate\"\r\n      ]\r\n    }\r\n  ],\r\n  \"Parameter\":{\r\n    \"Media\" : 5,\r\n    \"Subject\": \"My Email subject\",\r\n    \"ReplyTo\":\"support@myCompany.com\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/EmailJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"EmailJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Scheduled job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"Email\",\r\n  \"TrackingId\": \"Send a scheduled Email\",\r\n  \"ScheduledStartTime\": \"2019-01-01T00:00:00.688Z\", \r\n  \"EmailBody\": {\r\n    \"Name\": \"body.html\",\r\n    \"Content\": \"PGh0bWw+DQo8aGVhZGVyPg0KPG1ldGEgY2hhcnNldD0iVVRGLTgiPg0KPC9oZWFkZXI+DQo8Ym9keT4NClRoaXMgaXMgYW4gZW1haWwgdGVzdCBmcm9tIE9keXNzZXkgTWVzc2FnaW5nLg0KPC9ib2R5Pg0KPC9odG1sPg==\",\r\n    \"Type\":2\r\n  },\r\n  \"AdhocRecipients\" : [\r\n    {\r\n      \"Address\":\"usern@gmail.com\",\r\n      \"Name\":\"John\",\r\n      \"OptionalFields\": [\r\n        \"My Company\",\r\n        \"BirthDate\"\r\n      ]\r\n    }\r\n  ],\r\n  \"Parameter\": {\r\n    \"Media\" : 5,\r\n    \"Subject\": \"My Email subject\",\r\n    \"ReplyTo\":\"support@myCompany.com\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/EmailJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"EmailJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Send a Fax",
+					"description": "Samples to send a fax",
+					"item": [
+						{
+							"name": "Send basic fax",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"NO_JTYPE\",\r\n  \"CustomerNumber\": {{customerNumber}},\r\n  \"TrackingId\": \"test fax Odyssey REST API from adHoc\",\r\n  \"LaunchType\": 0,\r\n  \"Documents\": [\r\n    {\r\n      \"Name\": \"test.txt\",\r\n      \"Hosted\": false,\r\n      \"Type\":1,\r\n      \"Content\": \"Qm9uam91ciwgaWNpIEF1ZHJleSBQb3J0cm9uLCBjZWNpIGVzdCB1biB0ZXN0LiA=\"\r\n    }\r\n  ],\r\n  \"AdhocRecipients\": [\r\n    {\r\n      \"Name\": \"audrey\",\r\n      \"Address\": \"134296015\"\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/FaxJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"FaxJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Use advanced parameters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"NO_JTYPE\",\r\n  \"TrackingId\": \"Send FAX with advanced parameters\",\r\n  \"Documents\": [\r\n    {\r\n      \"Name\": \"document.pdf\",\r\n      \"Type\":1,\r\n      \"Content\": \"Qm9uam91ciwgaWNpIEF1 .../...  uLCBjZWNpIGVzdCB1biB0ZXN0LiA=\"\r\n    }\r\n  ],\r\n  \"AdhocRecipients\": [\r\n  {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00334xxxxxx\"\r\n    }\r\n  ],\r\n  \"Parameter\": {\r\n    \"Csid\": \"My company\",\r\n    \"Resolution\": 1,\r\n    \"Media\": 0\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/FaxJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"FaxJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Use a file list",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"NO_JTYPE\",\r\n  \"TrackingId\": \"Send FAX with file list\",\r\n  \"Documents\": [\r\n    {\r\n      \"Name\": \"document.pdf\",\r\n      \"Type\":1,\r\n      \"Content\": \"Qm9uam91ciwgaWNpIEF1 .../...  uLCBjZWNpIGVzdCB1biB0ZXN0LiA=\"\r\n    }\r\n  ],\r\n  \"Lists\": [\r\n    {\r\n      \"Name\": \"test.tab\",\r\n      \"Hosted\": false,\r\n      \"Type\":0,\r\n      \"Content\": \"77u/MDAzMzc4Tg3OA==\"\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/FaxJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"FaxJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "send a scheduled job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"NO_JTYPE\",\r\n  \"TrackingId\": \"Send scheduled fax\",\r\n  \"ScheduledStartTime\": \"2019-01-01T00:00:00.688Z\", \r\n  \"Documents\": [\r\n    {\r\n      \"Name\": \"document.pdf\",\r\n      \"Type\":1,\r\n      \"Content\": \"Qm9uam91ciwgaWNpIEF1 .../...  uLCBjZWNpIGVzdCB1biB0ZXN0LiA=\"\r\n    }\r\n  ],  \r\n  \"AdhocRecipients\": [\r\n  {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00334xxxxxx\"\r\n    }\r\n  ]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/FaxJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"FaxJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Send a Voice message",
+					"description": "Samples to send voice messages",
+					"item": [
+						{
+							"name": "Send basic voice message",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"Vocal\",\r\n  \"TrackingId\": \"Send Basic Voice message\",\r\n  \"Documents\": [\r\n    {\r\n      \"Name\": \"Test.txt\",\r\n      \"Type\":1,\r\n      \"Content\": \"VGhpcyBpcyBhIHZvaWNlIG1lc3NhZ2U=\"\r\n    }\r\n  ],\r\n  \"AdhocRecipients\": [\r\n  {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00336xxxxxx\"\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/VoiceJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"VoiceJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Use advanced parameters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"Vocal\",\r\n  \"TrackingId\": \"Send Voice message with advanced parameters\",\r\n  \"Documents\": [\r\n    {\r\n      \"Name\": \"Test.txt\",\r\n      \"Type\":1,\r\n      \"Content\": \"VGhpcyBpcyBhIHZvaWNlIG1lc3NhZ2U=\"\r\n    }\r\n  ],\r\n  \"AdhocRecipients\": [\r\n  {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00336xxxxxx\"\r\n    }\r\n  ],\r\n  \"Parameter\": {\r\n    \"Sender\": \"06xxxxxxxx\",\r\n    \"TextToSpeechVoiceRate\": 5,\r\n    \"TextToSpeechVoiceId\": 7,\r\n    \"ScenarioId\": 1,\r\n    \"AcknowledgeKey\": \"2\",\r\n    \"RepeatKey\": \"1\",\r\n    \"TransferNumber\": \"06xxxxxxxx\",\r\n    \"TransferKey\": \"3\",\r\n    \"Media\": 2 \r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/VoiceJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"VoiceJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Use file list",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"Vocal\",\r\n  \"TrackingId\": \"Send Voice message with file list\",\r\n  \"Documents\": [\r\n    {\r\n      \"Name\": \"Test.txt\",\r\n      \"Type\":1,\r\n      \"Content\": \"VGhpcyBpcyBhIHZvaWNlIG1lc3NhZ2U=\"\r\n    }\r\n  ],\r\n  \"Lists\": [\r\n    {\r\n      \"Name\": \"test.tab\",\r\n      \"Type\":0,\r\n      \"Content\": \"77u/MDAzMzc4Tg3OA==\"\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/VoiceJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"VoiceJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Personalized your message",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"Vocal\",\r\n  \"TrackingId\": \"Send Voice message with personalization\",\r\n  \"Documents\": [\r\n    {\r\n      \"Name\": \"Test.txt\",\r\n      \"Type\":1,\r\n      \"Content\": \"SGkgYEJDRjIsIEFyZSB5b3UgZnJvbSBgQkNGMyA/\"\r\n    }\r\n  ],\r\n  \"AdhocRecipients\": [\r\n    {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00337xxxxxx\",\r\n      \"OptionalFields\": [\r\n        \"Company A\"\r\n      ]\r\n    },\r\n  {\r\n      \"Name\": \"James\",\r\n      \"Address\": \"00336xxxxxx\",\r\n      \"OptionalFields\": [\r\n        \"Company B\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/VoiceJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"VoiceJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Scheduled a job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"jobNumber\", jsonData.JobNumber);",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									},
+									{
+										"key": "",
+										"value": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"JobType\": \"Vocal\",\r\n  \"TrackingId\": \"Send scheduled Voice message\",\r\n  \"ScheduledStartTime\": \"2019-01-01T00:00:00.688Z\", \r\n  \"Documents\": [\r\n    {\r\n      \"Name\": \"Test.txt\",\r\n      \"Type\":1,\r\n      \"Content\": \"VGhpcyBpcyBhIHZvaWNlIG1lc3NhZ2U=\"\r\n    }\r\n  ],\r\n  \"AdhocRecipients\": [\r\n  {\r\n      \"Name\": \"Dupont\",\r\n      \"Address\": \"00336xxxxxx\"\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.odyssey-services.fr/api/V1/VoiceJobs",
+									"protocol": "https",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"VoiceJobs"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "2- Get transmission reports (Pool way)",
+			"description": "",
+			"item": [
+				{
+					"name": "Get transmission reports list",
+					"description": "",
+					"item": [
+						{
+							"name": "Get Job reports",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/HostedReportFiles",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"HostedReportFiles"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get transmission report file",
+					"description": "",
+					"item": [
+						{
+							"name": "Get Job report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/HostedReportFiles/{{jobNumber}}",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"HostedReportFiles",
+										"{{jobNumber}}"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Delete transmission report file",
+					"description": "",
+					"item": [
+						{
+							"name": "Delete Job report",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/HostedReportFiles/{{jobNumber}}",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"HostedReportFiles",
+										"{{jobNumber}}"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "3 - Get transmission reports (Real time way) ",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all your job summaries",
+					"description": "",
+					"item": [
+						{
+							"name": "Get a job summary",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/JobSummaries/{{jobNumber}}",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"JobSummaries",
+										"{{jobNumber}}"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Get jobs summaries without filters",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/JobSummaries?pageSize=2",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"JobSummaries"
+									],
+									"query": [
+										{
+											"key": "pageSize",
+											"value": "2",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Get jobs summaries filter: pageSize and pageIndex",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/JobSummaries?pageIndex=1&pageSize=5",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"JobSummaries"
+									],
+									"query": [
+										{
+											"key": "pageIndex",
+											"value": "1",
+											"equals": true
+										},
+										{
+											"key": "pageSize",
+											"value": "5",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Get jobs summaries filter: TrackingId, NotSent",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/JobSummaries?filterTid=API&filterOnlyNotSent=true",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"JobSummaries"
+									],
+									"query": [
+										{
+											"key": "filterTid",
+											"value": "API",
+											"equals": true
+										},
+										{
+											"key": "filterOnlyNotSent",
+											"value": "true",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Get jobs summaries filter: Media and sort",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/JobSummaries?filterMedia=1&sortField=2&sortDirection=2",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"JobSummaries"
+									],
+									"query": [
+										{
+											"key": "filterMedia",
+											"value": "1",
+											"equals": true
+										},
+										{
+											"key": "sortField",
+											"value": "2",
+											"equals": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "2",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Get jobs summaries filter: Date",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/JobSummaries?filterStartDate=2017-07-01T12:54:40.460Z&filterEndDate=2017-07-08T12:54:40.460Z",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"JobSummaries"
+									],
+									"query": [
+										{
+											"key": "filterStartDate",
+											"value": "2017-07-01T12:54:40.460Z",
+											"equals": true
+										},
+										{
+											"key": "filterEndDate",
+											"value": "2017-07-08T12:54:40.460Z",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get recipients transmission result",
+					"description": "",
+					"item": [
+						{
+							"name": "Get a job detail without filter",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/JobItems?filterJob={{jobNumber}}",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"JobItems"
+									],
+									"query": [
+										{
+											"key": "filterJob",
+											"value": "{{jobNumber}}",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Get a job detail filter: pageSize and pageIndex",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/JobItems?filterJob={{jobNumber}}&pageIndex=1&pageSize=50",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"JobItems"
+									],
+									"query": [
+										{
+											"key": "filterJob",
+											"value": "{{jobNumber}}",
+											"equals": true
+										},
+										{
+											"key": "pageIndex",
+											"value": "1",
+											"equals": true
+										},
+										{
+											"key": "pageSize",
+											"value": "50",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Get a job detail filter: filterFailed, outcome and sort",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/JobItems?filterJob={{jobNumber}}&filterFailed=false&filterOutcome='F'&sortField=7&sortDirection=1",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"JobItems"
+									],
+									"query": [
+										{
+											"key": "filterJob",
+											"value": "{{jobNumber}}",
+											"equals": true
+										},
+										{
+											"key": "filterFailed",
+											"value": "false",
+											"equals": true
+										},
+										{
+											"key": "filterOutcome",
+											"value": "'F'",
+											"equals": true
+										},
+										{
+											"key": "sortField",
+											"value": "7",
+											"equals": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "1",
+											"equals": true
+										}
+									]
+								},
+								"description": "Get a job detail filter: filterFailed = false, outcome : 'F', sorted by attemps(7), asc"
+							},
+							"response": []
+						},
+						{
+							"name": "Get a job detail without filter: date",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/JobItems?filterJob={{jobNumber}}&filterStartDate=2017-07-01T12:54:40.460Z&filterEndDate=2017-07-08T12:54:40.460Z",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"JobItems"
+									],
+									"query": [
+										{
+											"key": "filterJob",
+											"value": "{{jobNumber}}",
+											"equals": true
+										},
+										{
+											"key": "filterStartDate",
+											"value": "2017-07-01T12:54:40.460Z",
+											"equals": true
+										},
+										{
+											"key": "filterEndDate",
+											"value": "2017-07-08T12:54:40.460Z",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "4 - SMS reception",
+			"description": "",
+			"item": [
+				{
+					"name": "Get received SMS",
+					"description": "",
+					"item": [
+						{
+							"name": "SMS Reception : without filter",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/InboundSms",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"InboundSms"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "SMS Reception : filter page index and size, job",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/InboundSms?pageIndex=1&pageSize=5&filterJob={{jobNumber}}",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"InboundSms"
+									],
+									"query": [
+										{
+											"key": "pageIndex",
+											"value": "1",
+											"equals": true
+										},
+										{
+											"key": "pageSize",
+											"value": "5",
+											"equals": true
+										},
+										{
+											"key": "filterJob",
+											"value": "{{jobNumber}}",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "SMS Reception : filtre Ani(From), MSNDIS(To)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/InboundSms?filterMSNDIS=INBOUNDSMS_55xxx&filterAni=336xxxxxx",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"InboundSms"
+									],
+									"query": [
+										{
+											"key": "filterMSNDIS",
+											"value": "INBOUNDSMS_55xxx",
+											"equals": true
+										},
+										{
+											"key": "filterAni",
+											"value": "336xxxxxx",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "SMS Reception : filter date and sort",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/InboundSms?FilterStartDate=2017-07-08T12:54:40.460Z&FilterEndDate=2017-07-24T12:54:40.460Z&sortField=0&sortDirection=2",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"InboundSms"
+									],
+									"query": [
+										{
+											"key": "FilterStartDate",
+											"value": "2017-07-08T12:54:40.460Z",
+											"equals": true
+										},
+										{
+											"key": "FilterEndDate",
+											"value": "2017-07-24T12:54:40.460Z",
+											"equals": true
+										},
+										{
+											"key": "sortField",
+											"value": "0",
+											"equals": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "2",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "5 - Fax reception",
+			"description": "",
+			"item": [
+				{
+					"name": "Get received Faxes list",
+					"description": "",
+					"item": [
+						{
+							"name": "Fax Reception : without filter",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/InboundFax",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"InboundFax"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Fax Reception : filter pageIndex, pageSize, filterTo",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/InboundFax?pageIndex=1&pageSize=5&filterTo=134296015",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"InboundFax"
+									],
+									"query": [
+										{
+											"key": "pageIndex",
+											"value": "1",
+											"equals": true
+										},
+										{
+											"key": "pageSize",
+											"value": "5",
+											"equals": true
+										},
+										{
+											"key": "filterTo",
+											"value": "134296015",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Fax Reception : filter Date and sort",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/InboundFax?FilterStartDate=2017-07-08T12:54:40.460Z&FilterEndDate=2017-07-24T12:54:40.460Z&sortField=0&sortDirection=2",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"InboundFax"
+									],
+									"query": [
+										{
+											"key": "FilterStartDate",
+											"value": "2017-07-08T12:54:40.460Z",
+											"equals": true
+										},
+										{
+											"key": "FilterEndDate",
+											"value": "2017-07-24T12:54:40.460Z",
+											"equals": true
+										},
+										{
+											"key": "sortField",
+											"value": "0",
+											"equals": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "2",
+											"equals": true
+										}
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get received Fax file",
+					"description": "",
+					"item": [
+						{
+							"name": "Reception files : Get File",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/InboundFolders/134296015/HostedInboundFiles/0-20170711-0714-1126279.PDF",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"InboundFolders",
+										"134296015",
+										"HostedInboundFiles",
+										"0-20170711-0714-1126279.PDF"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Delete received Fax file",
+					"description": "",
+					"item": [
+						{
+							"name": "Reception files : Delete a file",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/InboundFolders/134296015/HostedInboundFiles/0-20170724-0749-1135087.PDF",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"InboundFolders",
+										"134296015",
+										"HostedInboundFiles",
+										"0-20170724-0749-1135087.PDF"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "6 - Managed hosted list file",
+			"description": "",
+			"item": [
+				{
+					"name": "Get hosted list files list",
+					"description": "",
+					"item": [
+						{
+							"name": "Hosted list file : Get list files ",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Name\": \"TestList.tab\",\r\n  \"Content\": \"dXNlcm5AZ21haWwuY29tCUpvaG4JTXkgQ29tcGFueQlCaXJ0aERhdGU=\"  \r\n}"
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/HostedListFiles",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"HostedListFiles"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Gest hosted list file",
+					"description": "",
+					"item": [
+						{
+							"name": "Hosted list file : Get list file",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Name\": \"TestList.tab\",\r\n  \"Content\": \"dXNlcm5AZ21haWwuY29tCUpvaG4JTXkgQ29tcGFueQlCaXJ0aERhdGU=\"  \r\n}"
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/HostedListFiles/TestList.tab",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"HostedListFiles",
+										"TestList.tab"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Add hosted list file",
+					"description": "",
+					"item": [
+						{
+							"name": "Hosted list file : Add a list file",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Name\": \"TestList.tab\",\r\n  \"Content\": \"dXNlcm5AZ21haWwuY29tCUpvaG4JTXkgQ29tcGFueQlCaXJ0aERhdGU=\"  \r\n}"
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/HostedListFiles",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"HostedListFiles"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Delete hosted list file",
+					"description": "",
+					"item": [
+						{
+							"name": "Hosted list file : Delete a list file",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/HostedListFiles/TestList.tab",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"HostedListFiles",
+										"TestList.tab"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "7 - Managed hosted document file",
+			"description": "",
+			"item": [
+				{
+					"name": "Get hosted document files list",
+					"description": "",
+					"item": [
+						{
+							"name": "Hosted document file : Get document files",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Name\": \"TestList.tab\",\r\n  \"Content\": \"dXNlcm5AZ21haWwuY29tCUpvaG4JTXkgQ29tcGFueQlCaXJ0aERhdGU=\"  \r\n}"
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/HostedDocumentFiles",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"HostedDocumentFiles"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Gest hosted document file",
+					"description": "",
+					"item": [
+						{
+							"name": "Hosted document file : Get document file",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Name\": \"TestList.tab\",\r\n  \"Content\": \"dXNlcm5AZ21haWwuY29tCUpvaG4JTXkgQ29tcGFueQlCaXJ0aERhdGU=\"  \r\n}"
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/HostedDocumentFiles/TestDocument.pdf",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"HostedDocumentFiles",
+										"TestDocument.pdf"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Add hosted document file",
+					"description": "",
+					"item": [
+						{
+							"name": "Hosted document file : Add a document file",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Name\": \"TestDocument.pdf\",\r\n  \"Content\": \"dXNlcm5AZ21haWwuY29tCUpvaG4JTXkgQ29tcGFueQlCaXJ0aERhdGU=\"  \r\n}"
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/HostedDocumentFiles",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"HostedDocumentFiles"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Delete hosted document file",
+					"description": "",
+					"item": [
+						{
+							"name": "Hosted document file : Delete a document file",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Auth}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://api.odyssey-services.fr/api/V1/HostedDocumentFiles/TestDocument.pdf",
+									"protocol": "http",
+									"host": [
+										"api",
+										"odyssey-services",
+										"fr"
+									],
+									"path": [
+										"api",
+										"V1",
+										"HostedDocumentFiles",
+										"TestDocument.pdf"
+									]
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}
