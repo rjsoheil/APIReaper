@@ -23,11 +23,7 @@ APIReaper can import endpoint data from multiple sources:
 - Insomnia exports
 - Simple JSON request lists
 
-Imported endpoints are converted into raw HTTP requests that can be reviewed and edited inside Burp.
-
-![Import Flow](docs/images/import-flow.png)
-
-> Screenshot placeholder: Import button and loaded endpoint tree.
+Imported endpoints are converted into raw HTTP requests that can be **reviewed and edited** inside Burp.
 
 ### Editable Request Workspace
 
@@ -39,9 +35,9 @@ Each endpoint opens in its own request tab. The editor includes separate views f
 
 Changes are synchronized between the Raw, Headers, and Body views.
 
-![Request Editor](docs/images/request-editor.png)
+<img width="1269" height="660" alt="image" src="https://github.com/user-attachments/assets/7251348c-b0dd-4abd-89dd-5e66518366e7" />
 
-> Screenshot placeholder: request tab showing Raw, Headers, and Body sub-tabs.
+> Request tab showing Raw, Headers, and Body sub-tabs.
 
 ### Modified Request Tracking
 
@@ -68,9 +64,9 @@ Authorization: Bearer {{USER_TOKEN}}
 Authorization: Bearer {{ADMIN_TOKEN}}
 ```
 
-![Auth Profiles](docs/images/auth-profiles.png)
+<img width="1071" height="591" alt="image" src="https://github.com/user-attachments/assets/3f512deb-f3b2-4521-b1ef-bb21a3a3841e" />
 
-> Screenshot placeholder: Auth Profile dropdown with User Token and Admin Token selected.
+> Auth Profile dropdown with User Token selected.
 
 ### Advanced Filters
 
@@ -83,9 +79,9 @@ Filters are available in a separate dialog to keep the main UI clean. You can fi
 
 The filter summary is shown in the main toolbar.
 
-![Filters Dialog](docs/images/filters-dialog.png)
+<img width="1393" height="743" alt="image" src="https://github.com/user-attachments/assets/b0d9ce65-6dc2-429b-b8c6-8b2c692be461" />
 
-> Screenshot placeholder: Filters window with method checkboxes and search fields.
+> Filters window with method checkboxes and search fields.
 
 ### JSON Body Utilities
 
@@ -97,9 +93,9 @@ The Body editor includes quick actions for API payload work:
 
 These actions help when preparing payloads for Repeater, Intruder, or manual testing.
 
-![Body Tools](docs/images/body-tools.png)
+<img width="1066" height="611" alt="image" src="https://github.com/user-attachments/assets/39bd7f79-a3a2-430d-9978-c7fa23e2e4d6" />
 
-> Screenshot placeholder: Body tab toolbar with Pretty JSON, Minify, and Copy Body.
+> Body tab toolbar with Pretty JSON, Minify, and Copy Body.
 
 ### Send to Burp Tools
 
@@ -127,17 +123,9 @@ The Document Summary tab helps review imported API documents at a higher level. 
 - Request body parameters
 - Response body parameters
 
-![Document Summary](docs/images/document-summary.png)
+<img width="1701" height="920" alt="image" src="https://github.com/user-attachments/assets/3a5082f9-d9a4-4076-b872-08dd627df700" />
 
-> Screenshot placeholder: Document Summary tab with endpoint and parameter tables.
-
-### About Tab
-
-The About tab includes project information, author details, GitHub link, and LinkedIn link.
-
-![About Tab](docs/images/about-tab.png)
-
-> Screenshot placeholder: About tab with APIReaper title and social links.
+> Document Summary tab with endpoint and parameter tables.
 
 ## Installation
 
@@ -188,35 +176,8 @@ The About tab includes project information, author details, GitHub link, and Lin
 ]
 ```
 
-## Security Notes
-
-APIReaper is built for security testing workflows. Be careful when importing real production collections:
-
-- Review generated requests before sending them.
-- Avoid committing real tokens or secrets.
-- Use token placeholders such as `{{USER_TOKEN}}` and `{{ADMIN_TOKEN}}`.
-- Confirm batch sends before sending large request sets to Burp Repeater.
-
-## Roadmap Ideas
-
-Potential future improvements:
-
-- IDOR helper
-- Mass assignment variant generator
-- Intruder payload position builder
-- Sensitive endpoint highlighting
-- Local AI assistant for endpoint risk triage
-- Workspace save/load support
-- Parameter inventory export
-
 ## Author
 
 Created by **Soheil Rajaei**.
 
-- GitHub: [rjsoheil](https://github.com/rjsoheil/)
 - LinkedIn: [Soheil Rajaei](https://www.linkedin.com/in/soheil-rajaei-1b0805243/)
-
-## License
-
-Add your preferred license here.
-
